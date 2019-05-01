@@ -1,0 +1,115 @@
+#+TITLE: Tutorial for Org mode
+#+option: toc:nil
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/setup/theme-bigblow.setup
+#+ATTR_HTML: :alt cat/spider image :title Action! :align right
+
+* First level
+** second level
+*** third level
+
+Text text text !
+
+*** first
+*** second
+*** third
+*** alt+up, alt+down
+
+** Markup
+
+*Bold* /italic/, =verbatim=, +striketthrough+
+
+- bulleted
+- list
+- items
+
+- insert link =C-c C-l= [[https://www.youtube.com/watch?v=SzA2YODtgK4][Getting stated with Org mode]] =C-c C-o= open
+- insert link file =C-c l= in some files , =C-c C-l= insert file [[*second level][this second]]
+
+
+* Tables
+
+- |
+- Tap
+- |- and tab
+- M-arrow swith columns
+- shift-tab, tab
+- enter for new line
+- C-c + sum
+
+| Some | Data          |
+|------+---------------|
+|   12 | buclk my shoe |
+|   34 | hahaha        |
+
+
+* Export
+
+C-c C-e
+
+
+* Source code
+
+** Example 1
+
+#+BEGIN_SRC python :exports both :results output
+  print("Hello World")
+  print(1 + 1)
+
+  def fib(n):
+      if n < 2:
+          return 1
+      p1 = p2 = 1
+      for i in range(2, n + 1):
+          p1, p2 = p2, p1 + p2
+      return p2
+
+  print("nihao")
+#+END_SRC
+
+#+RESULTS:
+: Hello World
+: 2
+: nihao
+
+** Example 2
+
+#+begin_src python :exports: both :session *python* :results file graphics
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+fig=plt.figure(figsize=(3,2))
+plt.plot([1,3,2])
+fig.tight_layout()
+plt.savefig('images/myfig.png')
+'images/myfig.png' # return this to org-mode
+#+end_src
+
+#+RESULTS:
+[[file:images/myfig.png]]
+
+* latex
+
+- character: \alpha, \rightarrow \beta
+- $(n \log n)$
+
+\begin{align*}
+ 1 + 2 + 3 &= 5 \\
+x + y &= \beta
+\end{align*}
+
+
+* TODO list
+
+
+*** TODO explain todo lists
+=C-c C-d= set deadline
+DEADLINE: <2019-02-18 Mon>
+
+
+*** DONE cycle through states
+=C-c C-t= cycle through states
+CLOSED: [2019-02-17 Sun 23:43] Time can use =shift arrow=
+
+=org2blog=
+=org-publish=
+=ox-twbs=
